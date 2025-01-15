@@ -10,13 +10,13 @@ Before setting up the project, ensure you have the following installed on your s
 ## Repository Setup
 
 1. Clone the repository:
-   git clone
+   git clone https://github.com/denamielleonardo/temperature.git
 
-2. After cloning, switch to the development branch:
-   git checkout development
+2. After cloning, switch to the main branch:
+   git checkout main
 
 3. Install the required dependencies:
    npm install
 
 4. Start the development server:
-   ng serve
+   ng serve and run http://localhost:4200/
