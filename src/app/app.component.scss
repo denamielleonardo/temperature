@@ -1,0 +1,85 @@
+div.mainContainer {
+    height: 100vh;
+    width: 100vw;
+
+    div.temperatureContainer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        div.temperature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 250px;
+            padding: 8px;
+            border: 1px solid #a9a4a4;
+            background: #eee;
+
+            div.celsiusContainer {
+                display: flex;
+                flex-direction: column;
+            }
+        
+            div.rangeContainer {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .range {
+                    -webkit-appearance: none;
+                    width: 200px;
+                    height: 10px;
+                    border-radius: 5px;
+                    outline: none;
+                    transform: rotate(-90deg);
+                    transition: all 1s;
+                }
+                
+                .range::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    width: 15px;
+                    height: 25px;
+                    border-radius: none;
+                    cursor: pointer;
+                    border: 1px solid #eee;
+                    background-color: rgb(209, 209, 209);
+                }
+            }
+        
+            div.fahrenheitContainer {
+                display: flex;
+                flex-direction: column;
+            }
+        
+            div.celsiusContainer,
+            div.fahrenheitContainer {
+                width: 150px;
+
+                span {
+                    font-size: 1.2rem;
+                }
+
+                input {
+                    height: 50px;
+                    width: 150px;
+                    font-size: 1.2rem;
+                    text-align: center;
+                }
+            }
+        }
+
+        div.errorMessage {
+            color: white;
+            background-color: red;
+            border-radius: 4px;
+            padding: 4px 10px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    }
+}
