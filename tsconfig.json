@@ -14,8 +14,12 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
-    "module": "es2020",
+    // "target": "es2017",
+    // "module": "es2020",
+    "module": "ESNext",         // Use ES modules
+    "target": "ES2015",         // Set target to ES2015 or higher
+    "esModuleInterop": true,    // Allow CommonJS imports
+    "skipLibCheck": true,        // Skip library checking for faster compilation
     "lib": [
       "es2018",
       "dom"
