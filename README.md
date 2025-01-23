@@ -6,8 +6,8 @@ This project is a temperature conversion tool that allows users to convert value
 
 Before setting up the project, ensure you have the following installed on your system:
 
-- **Angular** version 12.2.4 or higher
-- **Node** version v14.15.0 or higher
+- **Angular** version 13 or higher
+- **Node** version v18 or higher
 
 ## Repository Setup
 

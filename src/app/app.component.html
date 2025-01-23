@@ -1,22 +1,41 @@
-<div class="mainContainer">
-  <div class="temperatureContainer">
-    <div class="temperature">
-      <div class="celsiusContainer">
+<div class="temperatureApp" [ngClass]="getTemperatureClass()">
+  <div *ngIf="errorMessage" class="error"><i class="fas fa-exclamation-triangle"></i>{{ errorMessage }}</div>
+  <div class="temperatureAppOverlay"></div>
+
+  <div class="innerContainer">
+    <div class="celsius">
+      <div class="inputValue">
         <span>Celsius:</span>
-        <input type="number" [(ngModel)]="celsius" (input)="onCelsiusChanged()" min="-30" max="200">
+        <input type="number" [(ngModel)]="celsius" (input)="onCelsiusChanged()" />
       </div>
-    
-      <div class="rangeContainer">
-        <input class="range" type="range" min="-30" max="200" [(ngModel)]="celsius" (input)="onCelsiusChanged()" [style.background]="getTemperatureColor()">
-      </div>
-    
-      <div class="fahrenheitContainer">
-        <span>Fahrenheit:</span>
-        <input type="number" [(ngModel)]="fahrenheit" (input)="onFahrenheitChanged()">
+
+      <div class="sliderContainer">
+        <input
+          id="temperatureSlider"
+          type="range"
+          min="-30"
+          max="200"
+          [(ngModel)]="celsius"
+          (input)="onCelsiusChanged()"
+        />
       </div>
     </div>
 
-    <div class="errorMessage" *ngIf="errorMessage">{{ errorMessage }}</div>
+    <div class="fahrenheit">
+      <div class="inputValue">
+        <span>Fahrenheit:</span>
+        <input type="number" [(ngModel)]="fahrenheit" (input)="onFahrenheitChanged()"/>
+      </div>
+
+      <div class="sliderContainer fahrenheit">
+        <input
+          id="temperatureSlider"
+          type="range"
+          [(ngModel)]="fahrenheit"
+          (input)="onFahrenheitChanged()"
+        />
+      </div>
+    </div>
   </div>
 </div>
 

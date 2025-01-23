@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Util } from 'src/util';
+import { ERROR_MESSAGE, TEMPERATURE, Util } from 'src/util';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ export class AppComponent {
 
   celsius: number = 0;
   fahrenheit: number = 0;
-  errorMessage: string = "";
+  errorMessage: string = '';
 
   constructor() {  }
   
@@ -26,15 +26,15 @@ export class AppComponent {
   
   handleError() {
     if (this.celsius < -30 || this.celsius > 200) {
-      this.errorMessage = 'Invalid celsius value';
+      this.errorMessage = ERROR_MESSAGE.INVALID_TEMPERATURE;
       return;
     }
     this.errorMessage = '';
   }
 
-  getTemperatureColor(): string {
-    if (this.celsius < 30) return 'lightblue';
-    if (this.celsius > 30 && this.celsius <= 80) return 'orange';
-    return 'red';
+  getTemperatureClass(): string {
+    if (this.celsius < 30) return TEMPERATURE.COLD;
+    if (this.celsius >= 30 && this.celsius <= 80) return TEMPERATURE.WARM;
+    return TEMPERATURE.HOT;
   }
 }

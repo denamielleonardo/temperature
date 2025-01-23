@@ -1,46 +1,101 @@
-div.mainContainer {
+.temperatureApp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    width: 100vw;
+    color: white;
+    font-family: Arial, sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1477468572316-36979010099d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    position: relative;
 
-    div.temperatureContainer {
-        height: 100%;
-        width: 100%;
+    .error {
+        background: red;
+        border-radius: 4px;
+        padding: 12px 20px;
+        font-size: 0.875rem;
+        color: white;
+        font-weight: 500;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        width: 250px;
+
+        i {
+            margin-right: 8px;
+        }
+    }
+
+    .temperatureAppOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        transition: background-color 0.5s ease;
+    }
+
+    .innerContainer {
+        width: 750px;
+        height: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        padding: 24px;
+        position: relative;
+        background: rgba(48, 42, 42, 0.268);
+        transition: all 1.5s;
 
-        div.temperature {
+        .celsius, .fahrenheit {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 250px;
-            padding: 8px;
-            border: 1px solid #a9a4a4;
-            background: #eee;
+            flex-direction: column;
+            position: relative;
+            height: 100%;
 
-            div.celsiusContainer {
+            .inputValue {
                 display: flex;
+                align-items: center;
+                justify-content: center;
                 flex-direction: column;
+
+                span {
+                    font-size: 1.5rem;
+                    margin-bottom: 4px;
+                }
+
+                input {
+                    height: 40px;
+                    width: 150px;
+                    font-size: 1.8rem;
+                    border-radius: 5px;
+                    border: none;
+                    text-align: center;
+                }
             }
-        
-            div.rangeContainer {
+
+            .sliderContainer {
                 height: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
-                .range {
+            
+                #temperatureSlider {
                     -webkit-appearance: none;
-                    width: 200px;
+                    width: 300px;
                     height: 10px;
-                    border-radius: 5px;
+                    border-radius: 10px;
                     outline: none;
                     transform: rotate(-90deg);
-                    transition: all 1s;
                 }
-                
-                .range::-webkit-slider-thumb {
+                    
+                #temperatureSlider::-webkit-slider-thumb {
                     -webkit-appearance: none;
                     width: 15px;
                     height: 25px;
@@ -50,36 +105,18 @@ div.mainContainer {
                     background-color: rgb(209, 209, 209);
                 }
             }
-        
-            div.fahrenheitContainer {
-                display: flex;
-                flex-direction: column;
-            }
-        
-            div.celsiusContainer,
-            div.fahrenheitContainer {
-                width: 150px;
-
-                span {
-                    font-size: 1.2rem;
-                }
-
-                input {
-                    height: 50px;
-                    width: 150px;
-                    font-size: 1.2rem;
-                    text-align: center;
-                }
-            }
-        }
-
-        div.errorMessage {
-            color: white;
-            background-color: red;
-            border-radius: 4px;
-            padding: 4px 10px;
-            margin-top: 10px;
-            font-weight: bold;
         }
     }
+}
+
+.temperatureApp.cold .temperatureAppOverlay {
+    background-color: rgba(173, 216, 230, 0.5);
+}
+  
+.temperatureApp.warm .temperatureAppOverlay {
+    background-color: rgba(255, 165, 0, 0.5);
+}
+  
+.temperatureApp.hot .temperatureAppOverlay {
+    background-color: rgba(255, 99, 71, 0.5);
 }
