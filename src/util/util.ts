@@ -4,7 +4,7 @@ export class Util  {
         return Number(converted.toFixed(2));
     }
 
-    public static convertFarenheit(fahrenheit: number) {
+    public static convertFahrenheit(fahrenheit: number) {
         const converted = (fahrenheit * 9) / 5 + 32;
         return Number(converted.toFixed(2));
     }

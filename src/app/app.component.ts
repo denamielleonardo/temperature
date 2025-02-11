@@ -15,21 +15,25 @@ export class AppComponent {
   constructor() {  }
   
   onCelsiusChanged() {
-    this.handleError();
-    this.fahrenheit = Util.convertFarenheit(this.celsius);
+    if (this.isValidTemperature(this.celsius)) {
+      this.fahrenheit = Util.convertFahrenheit(this.celsius);
+      this.errorMessage = '';
+    } else {
+      this.errorMessage = ERROR_MESSAGE.INVALID_TEMPERATURE;
+    }
   }
 
   onFahrenheitChanged() {
-    this.handleError();
-    this.celsius = Util.convertCelsius(this.fahrenheit);
+    if (this.isValidTemperature(this.fahrenheit)) {
+      this.celsius = Util.convertCelsius(this.fahrenheit);
+      this.errorMessage = '';
+    } else {
+      this.errorMessage = ERROR_MESSAGE.INVALID_TEMPERATURE;
+    }
   }
   
-  handleError() {
-    if (this.celsius < -30 || this.celsius > 200) {
-      this.errorMessage = ERROR_MESSAGE.INVALID_TEMPERATURE;
-      return;
-    }
-    this.errorMessage = '';
+  isValidTemperature(value: number): boolean {
+    return value >= -30 && value <= 200;
   }
 
   getTemperatureClass(): string {
